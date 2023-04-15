@@ -5,8 +5,7 @@
 package bean;
 
 import common.MiniVitaStore;
-import jakarta.faces.bean.ApplicationScoped;
-import jakarta.faces.bean.RequestScoped;
+import jakarta.faces.bean.SessionScoped;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ManagedProperty;
 import java.io.Serializable;
@@ -17,7 +16,7 @@ import models.Faculty;
  * @author swapn
  */
 @ManagedBean
-@RequestScoped
+@SessionScoped
 public class FacultyController  implements Serializable{
     private Faculty faculty;
     @ManagedProperty(value="#{miniVitaStore}")
@@ -55,7 +54,7 @@ public class FacultyController  implements Serializable{
             return "";
         }
     }
-    
+
     
     public String tryDeletingFaculty(int hashCode){
         //db code here
@@ -65,6 +64,5 @@ public class FacultyController  implements Serializable{
             return "";
         }
     }
-    
-    
+
 }
