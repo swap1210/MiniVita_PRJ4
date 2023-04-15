@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">  
+<h:head>  
+<title>Landing Page</title>  
+</h:head>  
+<h:body>  
+<h:outputStylesheet library="css" name="style.css"  />
+<h2>Hello <h:outputText value="#{credential.user.username}"> ( <h:link outcome="index.xhtml" value="log out"></h:link>)</h:outputText></h2>  
+       
+<h3>Faculties:</h3>
+<h:form>
+    <ol>
+        <ui:repeat value="#{miniVitaStore.faculties}" var="faculty">
+            <li>
+                <h:link value="#{faculty.name}" outcome="faculty/faculty.xhtml">
+                <f:param name="hash" value="#{faculty.hashCode()}" />
+                </h:link >
+                &nbsp;&nbsp;&nbsp;
+                <h:link value="delete" outcome="faculty/deleteFaculty.xhtml">
+                <f:param name="hash" value="#{faculty.hashCode()}" />
+                </h:link >
+            </li>
+        </ui:repeat>
+    </ol><br/>  
+<h:commandButton value="Add New Faculty" action="faculty/newFaculty.xhtml"/>
+</h:form>
+</h:body>
+</html>
