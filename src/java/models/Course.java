@@ -12,8 +12,8 @@ import java.io.Serializable;
  */
 public class Course implements Serializable{
     // Attributes of the UniversityCourse class
-    private String courseCode;
-    private String courseName;
+    private String code;
+    private String name;
     private int creditHours;
     private String department;
 
@@ -23,40 +23,46 @@ public class Course implements Serializable{
         if (obj == null) return false;
         if (this.getClass() != obj.getClass()) return false;
         Course objToCompare = (Course) obj;
-        return (this.courseCode.equals(objToCompare.courseCode) 
-          && this.courseName.equals(objToCompare.courseName)
+        return (this.code.equals(objToCompare.code) 
+          && this.name.equals(objToCompare.name)
           && this.department.equals(objToCompare.department))
                 && this.creditHours == objToCompare.creditHours;
     }
 
     @Override
     public int hashCode() {
-        return this.department.hashCode()*this.courseName.hashCode()*this.courseCode.hashCode()*this.creditHours; 
+        return this.department.hashCode()*this.name.hashCode()*this.code.hashCode()*this.creditHours; 
     }
 
+    public Course() {
+        this.code = "";
+        this.name = "";
+        this.creditHours = 0;
+        this.department = "";
+    }
     
-    public Course(String courseCode, String courseName, int creditHours, String department) {
-        this.courseCode = courseCode;
-        this.courseName = courseName;
+    public Course(String code, String name, int creditHours, String department) {
+        this.code = code;
+        this.name = name;
         this.creditHours = creditHours;
         this.department = department;
     }
     
     // Getters and setters for the attributes of the UniversityCourse class
-    public String getCourseCode() {
-        return courseCode;
+    public String getCode() {
+        return code;
     }
 
-    public void setCourseCode(String courseCode) {
-        this.courseCode = courseCode;
+    public void setCode(String code) {
+        this.code = code;
     }
 
-    public String getCourseName() {
-        return courseName;
+    public String getName() {
+        return name;
     }
 
-    public void setCourseName(String courseName) {
-        this.courseName = courseName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getCreditHours() {

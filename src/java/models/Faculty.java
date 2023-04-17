@@ -57,6 +57,14 @@ public class Faculty  implements Serializable{
     public List<Course> getCourses() {
         return courses;
     }
+    
+    public Course getCourses(int findCode){
+        for (Course c : courses) {
+            if (c.hashCode() == findCode)
+                return c;
+        }
+        return null;
+    }
 
     public void setCourses(List<Course> courses) {
         this.courses = courses;

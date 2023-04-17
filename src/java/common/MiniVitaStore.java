@@ -6,7 +6,6 @@ package common;
 
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ApplicationScoped;
-import jakarta.faces.bean.ManagedProperty;
 import java.io.Serializable;
 import java.util.Set;
 import java.util.HashSet;

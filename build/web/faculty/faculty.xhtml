@@ -9,10 +9,7 @@
     </h:head>
     <h:body>
         <h:outputStylesheet library="css" name="style.css"  />
-        <f:metadata>
-          <f:event type="preRenderView" listener="#{facultyController.setFaculty(miniVitaStore.getFaculty(param['hash']))}"/>
-        </f:metadata>
-        <h:link outcome="landing.xhtml" value="back"></h:link><br/><br/>
+        <h:link outcome="/landing.xhtml" value="back"></h:link><br/><br/>
         <h1>Faculty Details:</h1>
         Name: #{facultyController.faculty.name}<br/>
         Email: #{facultyController.faculty.email}<br/>
@@ -21,17 +18,17 @@
             <ol>
                 <ui:repeat value="#{facultyController.faculty.courses}" var="course">
                     <li>
-                        <h:link value="#{course.courseName}" outcome="faculty.xhtml">
-                        <f:param name="hash" value="#{course.hashCode()}" />
+                        <h:link value="#{course.name}" outcome="course/course.xhtml">
+                            <f:param name="hash" value="#{course.hashCode()}" />
                         </h:link >
                         &nbsp;&nbsp;&nbsp;
-                        <h:link value="delete" outcome="deleteCourse.xhtml">
-                        <f:param name="hash" value="#{course.hashCode()}" />
+                        <h:link value="delete" outcome="course/deleteCourse.xhtml">
+                            <f:param name="hash" value="#{course.hashCode()}" />
                         </h:link >
                     </li>
                 </ui:repeat>
             </ol><br/>
-        <h:commandButton value="Add New Course" action="newCourse.xhtml"/>
+        <h:commandButton value="Add New Course" action="course/newCourse.xhtml"/>
         </h:form>
     </h:body>
 </html>

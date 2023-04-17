@@ -8,6 +8,7 @@ import common.MiniVitaStore;
 import jakarta.faces.bean.SessionScoped;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ManagedProperty;
+import jakarta.faces.bean.RequestScoped;
 import java.io.Serializable;
 import models.Faculty;
 
@@ -47,12 +48,14 @@ public class FacultyController  implements Serializable{
       
     public String tryAddingFaculty(){
         //db code here
+        String goingTo = "";
         if(!miniVitaStore.getFaculties().contains(faculty)){
                miniVitaStore.getFaculties().add(faculty);
-               return "/landing.xhtml";
-        }else{
-            return "";
+               goingTo = "/landing.xhtml";
         }
+        System.out.println("added "+faculty.getName()+"."+miniVitaStore.getFaculties().size());
+            return goingTo;
+        
     }
 
     
