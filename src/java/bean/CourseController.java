@@ -71,4 +71,12 @@ public class CourseController implements Serializable{
     }
     
     
+    public String tryDeletingCourse(int hashCode){
+        //db code here
+        if(miniVitaStore.removeCourse(facultyController.getFaculty().hashCode(),hashCode)){
+               return "/faculty/faculty.xhtml?hash="+facultyController.getFaculty().hashCode();
+        }else{
+            return "";
+        }
+    }
 }
