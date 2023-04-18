@@ -6,9 +6,9 @@
         <title>Create Course</title>
     </h:head>
     <h:body>
-        #{facultyController.faculty.hashCode()}
         <h:outputStylesheet library="css" name="style.css"  />
-        <h1>Create new Course for #{courseController.faculty.name}</h1><br/> <br/>  
+        <h:link outcome="/faculty/faculty.xhtml" value="back"></h:link><br/><br/>
+        <h1>Create new Course for #{facultyController.faculty.name}</h1><br/> <br/>  
         <h:form>
         <h:outputLabel for="code">Code </h:outputLabel>  
         <h:inputText id="code" value="#{courseController.course.code}" required="true" requiredMessage="Code is required" /><br/> <br/>  

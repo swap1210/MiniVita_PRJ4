@@ -17,7 +17,7 @@ import models.User;
  *
  * @author swapn
  */
-@ManagedBean(name="miniVitaStore",eager=true)
+@ManagedBean
 @ApplicationScoped
 public class MiniVitaStore implements Serializable{
 

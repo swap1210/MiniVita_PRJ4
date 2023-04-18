@@ -8,6 +8,9 @@
         <title>Faculty</title>
     </h:head>
     <h:body>
+       <f:metadata>
+        <f:viewAction action="#{facultyController.setFaculty(miniVitaStore.getFaculty(param['hash']))}" />
+        </f:metadata>
         <h:outputStylesheet library="css" name="style.css"  />
         <h:link outcome="/landing.xhtml" value="back"></h:link><br/><br/>
         <h1>Faculty Details:</h1>
@@ -18,7 +21,7 @@
             <ol>
                 <ui:repeat value="#{facultyController.faculty.courses}" var="course">
                     <li>
-                        <h:link value="#{course.name}" outcome="course/course.xhtml">
+                        <h:link value="#{course.name}" outcome="#{stageManager.openCourse()}">
                             <f:param name="hash" value="#{course.hashCode()}" />
                         </h:link >
                         &nbsp;&nbsp;&nbsp;
@@ -28,7 +31,7 @@
                     </li>
                 </ui:repeat>
             </ol><br/>
-        <h:commandButton value="Add New Course" action="course/newCourse.xhtml"/>
+        <h:commandButton value="Add New Course" action="#{stageManager.openNewCourse()}"/>
         </h:form>
     </h:body>
 </html>

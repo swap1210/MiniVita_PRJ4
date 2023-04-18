@@ -49,10 +49,10 @@ public class FacultyController  implements Serializable{
     public String tryAddingFaculty(){
         //db code here
         String goingTo = "";
-        if(!miniVitaStore.getFaculties().contains(faculty)){
+//        if(!miniVitaStore.getFaculties().contains(faculty)){
                miniVitaStore.getFaculties().add(faculty);
                goingTo = "/landing.xhtml";
-        }
+//        }
         System.out.println("added "+faculty.getName()+"."+miniVitaStore.getFaculties().size());
             return goingTo;
         

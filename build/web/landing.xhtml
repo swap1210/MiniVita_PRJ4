@@ -15,7 +15,8 @@
     <ol>
         <ui:repeat value="#{miniVitaStore.faculties}" var="faculty">
             <li>
-                <h:link value="#{faculty.name}" outcome="#{stageManager.openFaculty(faculty.hashCode())}">
+                <h:link value="#{faculty.name}" outcome="#{stageManager.openFaculty()}">
+                <f:param name="hash" value="#{faculty.hashCode()}" />
                 </h:link >
                 &nbsp;&nbsp;&nbsp;
                 <h:link value="delete" outcome="faculty/deleteFaculty.xhtml">
@@ -23,7 +24,7 @@
                 </h:link >
             </li>
         </ui:repeat>
-    </ol><br/>  
+    </ol><br/> 
 <h:commandButton value="Add New Faculty" action="#{stageManager.openNewFaculty()}"/>
 </h:form>
 </h:body>

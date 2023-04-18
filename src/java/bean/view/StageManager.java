@@ -10,6 +10,7 @@ import common.MiniVitaStore;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ManagedProperty;
 import jakarta.faces.bean.RequestScoped;
+import models.Course;
 import models.Faculty;
 
 /**
@@ -36,12 +37,19 @@ public class StageManager {
         facultyController.setFaculty(new Faculty());
         return "faculty/newFaculty.xhtml";
     }
-    public String openFaculty(int facultyHash){
-        facultyController.setFaculty(miniVitaStore.getFaculty(facultyHash));
+    public String openFaculty(){
+//        System.out.println("Opening F "+facultyHash);
+//        facultyController.setFaculty(miniVitaStore.getFaculty(facultyHash));
         return "faculty/faculty.xhtml";
     }
-    public String openCourse(int courseHash){
-        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
+    
+    public String openNewCourse(){
+        courseController.setCourse(new Course());
+        return "course/newCourse.xhtml";
+    }
+    
+    public String openCourse(){
+//        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
         return "course/course.xhtml";
     }
 
