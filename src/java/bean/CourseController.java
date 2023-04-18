@@ -59,7 +59,7 @@ public class CourseController implements Serializable{
     
     public String addCourse(){
         facultyController.getFaculty().getCourses().add(course);
-        return "/faculty/faculty.xhtml";
+        return "/faculty/faculty.xhtml?hash="+facultyController.getFaculty().hashCode();
     }
 
     public Faculty getFaculty() {

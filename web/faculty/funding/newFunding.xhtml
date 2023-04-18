@@ -3,18 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
-        <title>New Faculty</title>
+        <title>Funding/Contract</title>
     </h:head>
     <h:body>
-        <h:outputStylesheet library="css" name="style.css"  />
-        <h:link outcome="/landing.xhtml" value="back"></h:link><br/><br/>
-        <h2>Create new faculty:</h2><br/> <br/>  
-        <h:form>
+        
+ <fieldset>
+  <legend>Funding/Contract</legend>
         <h:outputLabel for="name">Name </h:outputLabel>  
         <h:inputText id="name" value="#{facultyController.faculty.name}" required="true" requiredMessage="Name is required" /><br/> <br/>  
         <h:outputLabel for="email">Email </h:outputLabel>  
         <h:inputText id="email" value="#{facultyController.faculty.email}" required="true" requiredMessage="Email is required" /><br/> <br/>  
         <h:commandButton value="Add" action="#{facultyController.tryAddingFaculty()}"/>  
-        </h:form>
+  </fieldset>
     </h:body>
 </html>

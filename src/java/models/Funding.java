@@ -12,18 +12,17 @@ import java.io.Serializable;
  */
 public class Funding implements Serializable{
     // Attributes of the Funding class
-    private String fundingSource;
+    private String name;
     private double amount;
-    private String grantNumber;
     private FundingEntity fundingEnity;
         
     // Getters and setters for the attributes of the Funding class
-    public String getFundingSource() {
-        return fundingSource;
+    public String getName() {
+        return name;
     }
 
-    public void setFundingSource(String fundingSource) {
-        this.fundingSource = fundingSource;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getAmount() {
@@ -34,11 +33,13 @@ public class Funding implements Serializable{
         this.amount = amount;
     }
 
-    public String getGrantNumber() {
-        return grantNumber;
+    public FundingEntity getFundingEnity() {
+        return fundingEnity;
     }
 
-    public void setGrantNumber(String grantNumber) {
-        this.grantNumber = grantNumber;
+    public void setFundingEnity(FundingEntity fundingEnity) {
+        this.fundingEnity = fundingEnity;
     }
+    
+    
 }

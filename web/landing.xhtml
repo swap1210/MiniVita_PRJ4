@@ -8,7 +8,7 @@
 </h:head>  
 <h:body>  
 <h:outputStylesheet library="css" name="style.css"  />
-<h2>Hello <h:outputText value="#{credential.user.username}"> ( <h:link outcome="index.xhtml" value="log out"></h:link>)</h:outputText></h2>  
+<h2>Welcome to MiniVita Project <h:outputText value="#{credential.user.username}"> ( <h:link outcome="index.xhtml" value="log out"></h:link>)</h:outputText></h2>  
        
 <h3>Faculties (#{miniVitaStore.faculties.size()}):</h3>
 <h:form>
@@ -19,9 +19,7 @@
                 <f:param name="hash" value="#{faculty.hashCode()}" />
                 </h:link >
                 &nbsp;&nbsp;&nbsp;
-                <h:link value="delete" outcome="faculty/deleteFaculty.xhtml">
-                <f:param name="hash" value="#{faculty.hashCode()}" />
-                </h:link >
+                <h:commandButton value="Delete" action="#{facultyController.tryDeletingFaculty(faculty.hashCode())}"/>
             </li>
         </ui:repeat>
     </ol><br/> 

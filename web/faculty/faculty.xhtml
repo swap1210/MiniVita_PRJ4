@@ -13,7 +13,7 @@
         </f:metadata>
         <h:outputStylesheet library="css" name="style.css"  />
         <h:link outcome="/landing.xhtml" value="back"></h:link><br/><br/>
-        <h1>Faculty Details:</h1>
+        <h2>Faculty Details:</h2>
         Name: #{facultyController.faculty.name}<br/>
         Email: #{facultyController.faculty.email}<br/>
         <h2>Courses</h2>
@@ -25,9 +25,7 @@
                             <f:param name="hash" value="#{course.hashCode()}" />
                         </h:link >
                         &nbsp;&nbsp;&nbsp;
-                        <h:link value="delete" outcome="course/deleteCourse.xhtml">
-                            <f:param name="hash" value="#{course.hashCode()}" />
-                        </h:link >
+                        <h:commandButton value="Delete" action="#{courseController.tryDeletingCourse(course.hashCode())}"/>
                     </li>
                 </ui:repeat>
             </ol><br/>
