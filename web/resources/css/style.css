@@ -32,6 +32,9 @@ li{
 }
 
 .rowed{
-    display:flex;
+    display: flex;
     column-gap: 3em;
+    row-gap: 3em;
+    flex-wrap: wrap;
+    justify-content: center;
 }
