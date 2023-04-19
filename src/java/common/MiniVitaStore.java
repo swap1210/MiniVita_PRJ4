@@ -75,9 +75,12 @@ public class MiniVitaStore implements Serializable{
         return false;
     }
     
-    public boolean removeCourse(int facultyCode,int courseHash){
+    public boolean removeCourse(int facultyCode,int courseHash) throws Exception{
         //db code here
         Faculty fac = getFaculty(facultyCode);
+        if (fac == null){
+            throw new Exception("Faculty not found");
+        }
         for (Course c : fac.getCourses()) {
             if (c.hashCode() == courseHash){ 
                 fac.getCourses().remove(c);
