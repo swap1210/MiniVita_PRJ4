@@ -15,12 +15,15 @@ import java.util.List;
 public class Faculty  implements Serializable{
     private String name;
     private String email;
+    private int year;
     private List<Course> courses;
+    private List<Funding> fundings;
     
     public Faculty(){
         name = "";
         email = "";
         courses = new ArrayList<>();
+        fundings = new ArrayList<>();
     }
     
     @Override
@@ -58,7 +61,7 @@ public class Faculty  implements Serializable{
         return courses;
     }
     
-    public Course getCourses(int findCode){
+    public Course getCourse(int findCode){
         for (Course c : courses) {
             if (c.hashCode() == findCode)
                 return c;
@@ -72,5 +75,33 @@ public class Faculty  implements Serializable{
     
     public void addCourse(Course course){
         this.courses.add(course);
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public List<Funding> getFundings() {
+        return fundings;
+    }
+
+    public void setFundings(List<Funding> fundings) {
+        this.fundings = fundings;
+    }
+    
+    public void addFunding(Funding funding){
+        this.fundings.add(funding);
+    }
+    
+    public Funding getFunding(int findCode){
+        for (Funding f : fundings) {
+            if (f.hashCode() == findCode)
+                return f;
+        }
+        return null;
     }
 }

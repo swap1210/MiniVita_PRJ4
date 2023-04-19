@@ -31,7 +31,7 @@ public class Course implements Serializable{
 
     @Override
     public int hashCode() {
-        return this.department.hashCode()*this.name.hashCode()*this.code.hashCode()*this.creditHours; 
+        return this.department.hashCode()*this.name.hashCode()*this.code.hashCode()*(this.creditHours+20); 
     }
 
     public Course() {

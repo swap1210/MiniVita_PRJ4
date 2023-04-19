@@ -8,15 +8,25 @@
     </h:head>
     <h:body>
        <f:metadata>
-        <f:viewAction action="#{courseController.setCourse(facultyController.faculty.getCourses(param['hash']))}" />
+        <f:viewAction action="#{fundController.setFunding(facultyController.faculty.getFunding(param['hash']))}" />
         </f:metadata>
-        
         <h:outputStylesheet library="css" name="style.css"  />
-        <h:link outcome="/faculty/faculty.xhtml?hash=#{facultyController.faculty.hashCode()}" value="back"></h:link><br/><br/>
-        <h2>Course Detail:</h2>
-        <p><b>Code:</b> #{courseController.course.code}</p>
-        <p><b>Name:</b> #{courseController.course.name}</p>
-        <p><b>Credit Hours:</b> #{courseController.course.creditHours}</p>
-        <p><b>Department:</b> #{courseController.course.department}</p>
+        <h:link outcome="/minivita/minivita.xhtml" value="back">
+            <f:param name="hash" value="#{facultyController.faculty.hashCode()}" />
+        </h:link><br/><br/>
+        <h2>Create new Funding/Contract for #{facultyController.faculty.name}</h2><br/> <br/>  
+    <fieldset>
+        <legend>Funding/Contract</legend>
+        <h:form>
+               Name #{fundController.funding.name}<br/>
+               Amount #{fundController.funding.amount}<br/><br/>
+               <fieldset>
+                <legend>Funding Entities</legend>
+                      Name #{fundController.funding.fundingEnity.name}<br/>
+                      Established in #{fundController.funding.fundingEnity.establishedIn}<br/> 
+                </fieldset><br/><br/>
+               <h:commandButton value="Add" action="#{fundController.addFunding()}"/>  
+        </h:form>
+    </fieldset>
     </h:body>
 </html>

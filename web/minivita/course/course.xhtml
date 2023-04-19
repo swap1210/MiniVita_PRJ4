@@ -8,11 +8,13 @@
     </h:head>
     <h:body>
        <f:metadata>
-        <f:viewAction action="#{courseController.setCourse(facultyController.faculty.getCourses(param['hash']))}" />
+        <f:viewAction action="#{courseController.setCourse(facultyController.faculty.getCourse(param['hash']))}" />
         </f:metadata>
         
         <h:outputStylesheet library="css" name="style.css"  />
-        <h:link outcome="/faculty/faculty.xhtml?hash=#{facultyController.faculty.hashCode()}" value="back"></h:link><br/><br/>
+        <h:link outcome="/minivita/minivita.xhtml" value="back">
+            <f:param name="hash" value="#{facultyController.faculty.hashCode()}" />
+        </h:link><br/><br/>
         <h2>Course Detail:</h2>
         <p><b>Code:</b> #{courseController.course.code}</p>
         <p><b>Name:</b> #{courseController.course.name}</p>

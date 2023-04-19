@@ -10,12 +10,12 @@
 <h:outputStylesheet library="css" name="style.css"  />
 <h2>Welcome to MiniVita Project <h:outputText value="#{credential.user.username}"> ( <h:link outcome="index.xhtml" value="log out"></h:link>)</h:outputText></h2>  
        
-<h3>Faculties (#{miniVitaStore.faculties.size()}):</h3>
+<h3>MiniVitas (#{miniVitaStore.faculties.size()}):</h3>
 <h:form>
     <ol>
         <ui:repeat value="#{miniVitaStore.faculties}" var="faculty">
             <li>
-                <h:link value="#{faculty.name}" outcome="#{stageManager.openFaculty()}">
+                <h:link value="#{faculty.name}" outcome="#{stageManager.openMinivita()}">
                 <f:param name="hash" value="#{faculty.hashCode()}" />
                 </h:link >
                 &nbsp;&nbsp;&nbsp;
@@ -23,7 +23,7 @@
             </li>
         </ui:repeat>
     </ol><br/> 
-<h:commandButton value="Add New Faculty" action="#{stageManager.openNewFaculty()}"/>
+<h:commandButton value="Add New MiniVita" action="#{stageManager.openNewMinivita()}"/>
 </h:form>
 </h:body>
 </html>

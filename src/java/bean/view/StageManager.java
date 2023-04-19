@@ -6,12 +6,14 @@ package bean.view;
 
 import bean.CourseController;
 import bean.FacultyController;
+import bean.FundController;
 import common.MiniVitaStore;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ManagedProperty;
 import jakarta.faces.bean.RequestScoped;
 import models.Course;
 import models.Faculty;
+import models.Funding;
 
 /**
  *
@@ -26,31 +28,35 @@ public class StageManager {
     @ManagedProperty(value="#{facultyController}")
     private FacultyController facultyController;
     @ManagedProperty(value="#{courseController}")
-    private CourseController courseController;
+    private CourseController courseController;   
+    @ManagedProperty(value="#{fundController}") 
+    private FundController fundController;
+
     /**
      * Creates a new instance of StageManager
      */
     public StageManager() {
     }
     
-    public String openNewFaculty(){
+    public String openNewMinivita(){
         facultyController.setFaculty(new Faculty());
-        return "faculty/newFaculty.xhtml";
+        return "/minivita/newMinivita.xhtml";
     }
-    public String openFaculty(){
+    
+    public String openMinivita(){
 //        System.out.println("Opening F "+facultyHash);
 //        facultyController.setFaculty(miniVitaStore.getFaculty(facultyHash));
-        return "faculty/faculty.xhtml";
+        return "/minivita/minivita.xhtml";
     }
     
     public String openNewCourse(){
         courseController.setCourse(new Course());
-        return "course/newCourse.xhtml";
+        return "/minivita/course/newCourse.xhtml";
     }
     
     public String openCourse(){
 //        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
-        return "course/course.xhtml";
+        return "/minivita/course/course.xhtml";
     }
 
     public CourseController getCourseController() {
@@ -59,6 +65,14 @@ public class StageManager {
 
     public void setCourseController(CourseController courseController) {
         this.courseController = courseController;
+    }
+
+    public FundController getFundController() {
+        return fundController;
+    }
+
+    public void setFundController(FundController fundController) {
+        this.fundController = fundController;
     }
 
     public FacultyController getFacultyController() {
@@ -76,4 +90,15 @@ public class StageManager {
     public void setMiniVitaStore(MiniVitaStore miniVitaStore) {
         this.miniVitaStore = miniVitaStore;
     }
+    
+    public String openNewFunding(){
+        fundController.setFunding(new Funding());
+        return "funding/newFunding.xhtml";
+    }
+    
+    public String openFunding(){
+//        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
+        return "funding/funding.xhtml";
+    }
+
 }

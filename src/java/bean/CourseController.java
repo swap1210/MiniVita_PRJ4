@@ -4,6 +4,7 @@
  */
 package bean;
 
+import bean.view.StageManager;
 import common.MiniVitaStore;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ManagedProperty;
@@ -56,10 +57,10 @@ public class CourseController implements Serializable{
     public void setFacultyController(FacultyController facultyController) {
         this.facultyController = facultyController;
     }
-    
+
     public String addCourse(){
         facultyController.getFaculty().getCourses().add(course);
-        return "/faculty/faculty.xhtml?hash="+facultyController.getFaculty().hashCode();
+        return "/minivita/minivita.xhtml?hash="+facultyController.getFaculty().hashCode();
     }
 
     public Faculty getFaculty() {
@@ -74,9 +75,10 @@ public class CourseController implements Serializable{
     public String tryDeletingCourse(int hashCode){
         //db code here
         if(miniVitaStore.removeCourse(facultyController.getFaculty().hashCode(),hashCode)){
-               return "/faculty/faculty.xhtml?hash="+facultyController.getFaculty().hashCode();
+               return "/minivita/minivita.xhtml?hash="+facultyController.getFaculty().hashCode();
         }else{
             return "";
         }
     }
+    
 }

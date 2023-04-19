@@ -5,6 +5,7 @@
 package models;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -21,6 +22,12 @@ public class Funding implements Serializable{
         return name;
     }
 
+    public Funding() {
+        this.name = "";
+        this.amount = 0;
+        this.fundingEnity = new FundingEntity();
+    }
+    
     public void setName(String name) {
         this.name = name;
     }
@@ -40,6 +47,35 @@ public class Funding implements Serializable{
     public void setFundingEnity(FundingEntity fundingEnity) {
         this.fundingEnity = fundingEnity;
     }
-    
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + (int) (Double.doubleToLongBits(this.amount+10));
+        hash = 79 * hash + Objects.hashCode(this.fundingEnity);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Funding other = (Funding) obj;
+        if (Double.doubleToLongBits(this.amount) != Double.doubleToLongBits(other.amount)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return Objects.equals(this.fundingEnity, other.fundingEnity);
+    }
     
 }
