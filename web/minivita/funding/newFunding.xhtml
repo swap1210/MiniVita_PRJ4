@@ -13,17 +13,17 @@
         </h:link><br/><br/>
     <h2>Create new Funding/Contract for #{facultyController.faculty.name}</h2><br/> <br/>  
     <fieldset>
-        <legend>Funding/Contract</legend>
+        <legend><h2>Funding/Contract</h2></legend>
         <h:form>
                <h:outputLabel for="name">Name </h:outputLabel>  
                <h:inputText id="name" value="#{fundController.funding.name}" required="true" requiredMessage="Name is required" /><br/> 
-               <h:outputLabel for="email">Amount </h:outputLabel>  
-               <h:inputText id="email" value="#{fundController.funding.amount}" required="true" requiredMessage="Amount is required" /><br/><br/>
+               <h:outputLabel for="amount">Amount </h:outputLabel>  
+               <h:inputText id="amount" value="#{fundController.funding.amount}" required="true" requiredMessage="Amount is required" /><br/><br/>
 
                <fieldset>
-                <legend>Funding Entities</legend>
+                <legend><h3>Funding Entities</h3></legend>
                       <h:outputLabel for="fename">Name </h:outputLabel>  
-                      <h:inputText id="fename" value="#{fundController.funding.fundingEnity.name}" required="true" requiredMessage="Name is required" /><br/>
+                      <h:inputText id="fename" value="#{fundController.funding.fundingEnity.name}" required="true" requiredMessage="Funding Entity's name is required" /><br/>
                       <h:outputLabel for="establishedIn">Established in </h:outputLabel>  
                       <h:inputText id="establishedIn" value="#{fundController.funding.fundingEnity.establishedIn}" required="true" requiredMessage="Established in is required" /><br/> 
                 </fieldset><br/><br/>

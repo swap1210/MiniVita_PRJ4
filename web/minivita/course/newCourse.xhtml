@@ -11,7 +11,9 @@
         <h:link outcome="/minivita/minivita.xhtml" value="back">
             <f:param name="hash" value="#{facultyController.faculty.hashCode()}" />
         </h:link><br/><br/>
-        <h2>Create new Course for #{facultyController.faculty.name}</h2><br/> <br/>  
+        <h2>Create new Course for #{facultyController.faculty.name}</h2><br/> <br/>    
+    <fieldset>
+        <legend><h2>Course</h2></legend>
         <h:form>
         <h:outputLabel for="code">Code </h:outputLabel>  
         <h:inputText id="code" value="#{courseController.course.code}" required="true" requiredMessage="Code is required" /><br/> <br/>  
@@ -23,5 +25,6 @@
         <h:inputText id="department" value="#{courseController.course.department}" required="true" requiredMessage="Name is required" /><br/> <br/>  
         <h:commandButton value="Add" action="#{courseController.addCourse()}"/>  
         </h:form>
+    </fieldset>
     </h:body>
 </html>

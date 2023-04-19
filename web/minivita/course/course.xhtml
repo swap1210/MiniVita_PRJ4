@@ -14,11 +14,13 @@
         <h:outputStylesheet library="css" name="style.css"  />
         <h:link outcome="/minivita/minivita.xhtml" value="back">
             <f:param name="hash" value="#{facultyController.faculty.hashCode()}" />
-        </h:link><br/><br/>
-        <h2>Course Detail:</h2>
+        </h:link><br/><br/>   
+    <fieldset>
+        <legend><h2>Course Detail</h2></legend>
         <p><b>Code:</b> #{courseController.course.code}</p>
         <p><b>Name:</b> #{courseController.course.name}</p>
         <p><b>Credit Hours:</b> #{courseController.course.creditHours}</p>
         <p><b>Department:</b> #{courseController.course.department}</p>
+    </fieldset>
     </h:body>
 </html>
