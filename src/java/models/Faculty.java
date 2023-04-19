@@ -18,12 +18,14 @@ public class Faculty  implements Serializable{
     private int year;
     private List<Course> courses;
     private List<Funding> fundings;
+    private List<Publication> publications;
     
     public Faculty(){
         name = "";
         email = "";
         courses = new ArrayList<>();
         fundings = new ArrayList<>();
+        publications = new ArrayList<>();
     }
     
     @Override
@@ -101,6 +103,22 @@ public class Faculty  implements Serializable{
         for (Funding f : fundings) {
             if (f.hashCode() == findCode)
                 return f;
+        }
+        return null;
+    }
+
+    public List<Publication> getPublications() {
+        return publications;
+    }
+
+    public void setPublications(List<Publication> publications) {
+        this.publications = publications;
+    }
+    
+    public Publication getPublication(int findCode){
+        for (Publication p : publications) {
+            if (p.hashCode() == findCode)
+                return p;
         }
         return null;
     }

@@ -30,3 +30,8 @@ body{
 li{
     margin: 10px 0;
 }
+
+.rowed{
+    display:flex;
+    column-gap: 3em;
+}

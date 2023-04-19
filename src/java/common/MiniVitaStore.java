@@ -12,6 +12,7 @@ import java.util.HashSet;
 import models.Course;
 import models.Faculty;
 import models.Funding;
+import models.Publication;
 import models.User;
 
 /**
@@ -91,6 +92,18 @@ public class MiniVitaStore implements Serializable{
         for (Funding f : fac.getFundings()) {
             if (f.hashCode() == fundingHash){ 
                 fac.getFundings().remove(f);
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean removePublication(int facultyCode,int fundingHash){
+        //db code here
+        Faculty fac = getFaculty(facultyCode);
+        for (Publication f : fac.getPublications()) {
+            if (f.hashCode() == fundingHash){ 
+                fac.getPublications().remove(f);
                 return true;
             }
         }

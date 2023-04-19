@@ -8,7 +8,7 @@
     </h:head>
     <h:body>
        <f:metadata>
-        <f:viewAction action="#{fundController.setFunding(facultyController.faculty.getFunding(param['hash']))}" />
+        <f:viewAction action="#{publicationController.setPublication(facultyController.faculty.getPublication(param['hash']))}" />
         </f:metadata>
         <h:outputStylesheet library="css" name="style.css"  />
         <h:link outcome="/minivita/minivita.xhtml" value="back">
@@ -16,16 +16,15 @@
         </h:link><br/><br/>
         <h2>Create new Funding/Contract for #{facultyController.faculty.name}</h2><br/> <br/>  
     <fieldset>
-        <legend><h2>Funding/Contract</h2></legend>
-        <h:form>
-               Name #{fundController.funding.name}<br/>
-               Amount #{fundController.funding.amount}<br/><br/>
-               <fieldset>
-                <legend><h3>Funding Entities</h3></legend>
-                      Name #{fundController.funding.fundingEnity.name}<br/>
-                      Established in #{fundController.funding.fundingEnity.establishedIn}<br/> 
-                </fieldset><br/><br/> 
-        </h:form>
+        <legend><h2>Publication</h2></legend>
+        Name #{publicationController.publication.title}<br/> 
+        Content #{publicationController.publication.content}<br/> 
+        Year #{publicationController.publication.year}<br/> 
+        <fieldset>
+            <legend><h3>Publisher</h3></legend>
+                Name #{publicationController.publication.publisher.name}<br/>
+                Email #{publicationController.publication.publisher.email}"<br/> 
+        </fieldset><br/><br/>
     </fieldset>
     </h:body>
 </html>

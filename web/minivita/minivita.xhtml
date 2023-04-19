@@ -18,7 +18,9 @@
         Name: #{facultyController.faculty.name}<br/>
         Year #{facultyController.faculty.year}<br/>
         Email: #{facultyController.faculty.email}<br/>
-        <h3>Courses:</h3>
+        <div class="rowed">
+        <fieldset>
+        <legend><h3>Courses:</h3></legend>
         <h:form>
             <ol>
                 <ui:repeat value="#{facultyController.faculty.courses}" var="course">
@@ -33,7 +35,9 @@
             </ol><br/>
         <h:commandButton value="Add New Course" action="#{stageManager.openNewCourse()}"/>
         </h:form><br/>
-        <h3>Funding/Contracts:</h3>
+    </fieldset>
+        <fieldset>
+        <legend><h3>Funding/Contracts:</h3></legend>
         <h:form>
             <ol>
                 <ui:repeat value="#{facultyController.faculty.fundings}" var="funding">
@@ -48,5 +52,24 @@
             </ol><br/>
         <h:commandButton value="Add New Funding/Contract" action="#{stageManager.openNewFunding()}"/>
         </h:form>
+    </fieldset>
+        <fieldset>
+        <legend><h3>Publications:</h3></legend>
+        <h:form>
+            <ol>
+                <ui:repeat value="#{facultyController.faculty.publications}" var="publication">
+                    <li>
+                        <h:link value="#{publication.title}" outcome="#{stageManager.openPublication()}">
+                            <f:param name="hash" value="#{publication.hashCode()}" />
+                        </h:link >
+                        &nbsp;&nbsp;&nbsp;
+                        <h:commandButton value="Delete" action="#{publicationController.deletingPublication(publication.hashCode())}"/>
+                    </li>
+                </ui:repeat>
+            </ol><br/>
+        <h:commandButton value="Add New Publication" action="#{stageManager.openNewPublication()}"/>
+        </h:form>
+    </fieldset>
+        </div>
     </h:body>
 </html>

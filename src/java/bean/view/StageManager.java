@@ -7,6 +7,7 @@ package bean.view;
 import bean.CourseController;
 import bean.FacultyController;
 import bean.FundController;
+import bean.PublicationController;
 import common.MiniVitaStore;
 import jakarta.faces.bean.ManagedBean;
 import jakarta.faces.bean.ManagedProperty;
@@ -14,6 +15,7 @@ import jakarta.faces.bean.RequestScoped;
 import models.Course;
 import models.Faculty;
 import models.Funding;
+import models.Publication;
 
 /**
  *
@@ -31,6 +33,8 @@ public class StageManager {
     private CourseController courseController;   
     @ManagedProperty(value="#{fundController}") 
     private FundController fundController;
+    @ManagedProperty(value="#{publicationController}") 
+    private PublicationController publicationController;
 
     /**
      * Creates a new instance of StageManager
@@ -57,6 +61,16 @@ public class StageManager {
     public String openCourse(){
 //        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
         return "/minivita/course/course.xhtml";
+    }
+    
+    public String openNewPublication(){
+        publicationController.setPublication(new Publication());
+        return "/minivita/publication/newPublication.xhtml";
+    }
+    
+    public String openPublication(){
+//        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
+        return "/minivita/publication/publication.xhtml";
     }
 
     public CourseController getCourseController() {
@@ -99,6 +113,14 @@ public class StageManager {
     public String openFunding(){
 //        courseController.setCourse(facultyController.getFaculty().getCourses(courseHash));
         return "funding/funding.xhtml";
+    }
+
+    public PublicationController getPublicationController() {
+        return publicationController;
+    }
+
+    public void setPublicationController(PublicationController publicationController) {
+        this.publicationController = publicationController;
     }
 
 }
