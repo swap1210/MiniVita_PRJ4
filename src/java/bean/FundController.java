@@ -56,13 +56,14 @@ public class FundController implements Serializable{
         this.miniVitaStore = miniVitaStore;
     }
 
-    
+    //method to add funding into the current faculty this will eventually become a db logic
     public String addFunding(){
         System.out.println("/minivita/minivita.xhtml?hash="+facultyController.getFaculty().hashCode());
         facultyController.getFaculty().getFundings().add(funding);
         return "/minivita/minivita.xhtml?hash="+facultyController.getFaculty().hashCode();
     }
     
+    //method to remove funding from the current faculty this will eventually become a db logic
     public String tryDeletingFunding(int hashCode){
         //db code here
         if(miniVitaStore.removeFunding(facultyController.getFaculty().hashCode(),hashCode)){

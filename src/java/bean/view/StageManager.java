@@ -21,6 +21,7 @@ import models.Publication;
  *
  * @author swapn
  */
+//class responsible for all the tricky redirections and keeping track of current hash objects
 @ManagedBean
 @RequestScoped
 public class StageManager {

@@ -55,12 +55,12 @@ public class PublicationController implements Serializable{
     public void setMiniVitaStore(MiniVitaStore miniVitaStore) {
         this.miniVitaStore = miniVitaStore;
     }
-    
+    //method to add publication into the current faculty this will eventually become a db logic
     public String addPublication(){
         facultyController.getFaculty().getPublications().add(publication);
         return "/minivita/minivita.xhtml?hash="+facultyController.getFaculty().hashCode();
     }
-    
+    //method to remove funding into the current faculty this will eventually become a db logic
     public String deletingPublication(int hashCode){
         //db code here
         if(miniVitaStore.removePublication(facultyController.getFaculty().hashCode(),hashCode)){

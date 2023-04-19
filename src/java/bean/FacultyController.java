@@ -45,7 +45,9 @@ public class FacultyController  implements Serializable{
     public void setMiniVitaStore(MiniVitaStore miniVitaStore) {
         this.miniVitaStore = miniVitaStore;
     }
-      
+    
+    
+    //add minivita into the store list this will eventually become a db logic
     public String tryAddingFaculty(){
         //db code here
         String goingTo = "";
@@ -58,7 +60,7 @@ public class FacultyController  implements Serializable{
         
     }
 
-    
+    //method to delelete specific minivita with passed hascode from the current list this will eventually become a db logic
     public String tryDeletingFaculty(int hashCode){
         //db code here
         if(miniVitaStore.removeFaculty(hashCode)){

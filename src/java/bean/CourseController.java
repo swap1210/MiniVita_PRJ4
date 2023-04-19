@@ -58,6 +58,7 @@ public class CourseController implements Serializable{
         this.facultyController = facultyController;
     }
 
+    //method to add this course to current minivita
     public String addCourse(){
         facultyController.getFaculty().getCourses().add(course);
         return "/minivita/minivita.xhtml?hash="+facultyController.getFaculty().hashCode();
@@ -71,7 +72,7 @@ public class CourseController implements Serializable{
         this.faculty = faculty;
     }
     
-    
+    //method to delete sepcific course from current minivita
     public String tryDeletingCourse(int hashCode){
         //db code here
         if(miniVitaStore.removeCourse(facultyController.getFaculty().hashCode(),hashCode)){

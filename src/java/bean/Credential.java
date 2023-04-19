@@ -36,7 +36,7 @@ public class Credential implements Serializable{
 		this.miniVitaStore = miniVitaStore;
 	}
     
-    
+    //method to check username and password from the login request
     public String check(){
         if(miniVitaStore.getUsers().contains(user)){
             return "landing.xhtml";

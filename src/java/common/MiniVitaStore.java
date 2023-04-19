@@ -19,6 +19,7 @@ import models.User;
  *
  * @author swapn
  */
+//main class that lives on during the entire life span of application and keeps track of all the data 
 @ManagedBean
 @ApplicationScoped
 public class MiniVitaStore implements Serializable{
